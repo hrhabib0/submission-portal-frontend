@@ -5,6 +5,7 @@ import Link from "next/link";
 import { LogOut, Zap } from "lucide-react";
 
 import { useCurrentUser, useLogout } from "@/hooks";
+import { LogoutButton } from "./Logout";
 // import { logoutUser } from "@/api/auth.api";
 
 export default function Header() {
@@ -13,7 +14,7 @@ export default function Header() {
     isPending: isCheckingAuth,
     isError,
   } = useCurrentUser();
-  
+
   const logoutMutation = useLogout();
 
   const isAuthenticated = Boolean(user) && !isError;
@@ -93,17 +94,7 @@ export default function Header() {
                 Dashboard
               </Link>
 
-                <button
-                    type="button"
-                    onClick={() => logoutMutation.mutate()}
-                    disabled={logoutMutation.isPending}
-                    className="inline-flex h-9 items-center justify-center gap-2 rounded-md border px-3 text-sm font-medium transition-colors hover:bg-muted disabled:cursor-not-allowed disabled:opacity-50"
-                >
-                    <LogOut className="size-4" />
-                    <span className="hidden sm:inline">
-                        {logoutMutation.isPending ? "Logging out..." : "Logout"}
-                    </span>
-                </button>
+              <LogoutButton />
             </>
           ) : (
             <>

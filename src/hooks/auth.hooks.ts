@@ -49,10 +49,8 @@ export function useLogout() {
         queryKey: ["current-user"],
       });
 
-      // Immediately update the header's authentication state.
       queryClient.setQueryData(["current-user"], null);
 
-      // Navigate to the public homepage.
       router.replace("/");
       router.refresh();
 

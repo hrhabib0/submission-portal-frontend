@@ -9,10 +9,13 @@ import {
   PlusCircle,
   Zap,
   X,
+  LogOut,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { AuthUser } from "@/types/auth.types";
+import { useLogout } from "@/hooks";
+import { LogoutButton } from "../shared/Logout";
 
 
 interface DashboardSidebarProps {
@@ -134,6 +137,7 @@ export default function DashboardSidebar({
                 </Link>
               );
             })}
+            <LogoutButton />
           </nav>
         </div>
 
