@@ -9,6 +9,9 @@ import type {
   Submission,
   SubmissionStatus,
 } from "@/types/submission.types";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { Eye } from "lucide-react";
 
 const PAGE_SIZE = 10;
 
@@ -184,6 +187,16 @@ export default function MentorSubmissionsPage() {
                 <p className="whitespace-pre-wrap text-sm leading-6">
                   {submission.description}
                 </p>
+                <Button
+                  nativeButton={false}
+                  variant="outline"
+                  size="sm"
+                  render={<Link href={`/mentor/submissions/${submission.id}`} />}
+                  className="gap-2"
+                >
+                  <Eye className="size-4" />
+                  View Details
+                </Button>
 
                 <div className="flex flex-wrap gap-4 text-sm">
                   <a
