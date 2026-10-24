@@ -5,8 +5,6 @@ import { GitBranchPlus, Zap, ArrowUpRight } from "lucide-react";
 const footerLinks = {
   platform: [
     { label: "Home", href: "/" },
-    { label: "Student Dashboard", href: "/student/dashboard" },
-    { label: "Mentor Dashboard", href: "/mentor/dashboard" },
   ],
   account: [
     { label: "Login", href: "/login" },
