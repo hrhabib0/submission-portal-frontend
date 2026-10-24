@@ -3,7 +3,7 @@ import { getSubmissionStats } from "@/api/submission.api";
 
 export function useMentorDashboard() {
   return useQuery({
-    queryKey: ["mentor-dashboard-stats"],
+    queryKey: ["mentor-dashboard"],
     queryFn: async () => {
       const response = await getSubmissionStats();
       return response.data;

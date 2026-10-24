@@ -1,6 +1,6 @@
 import apiClient from "@/lib/apiClient";
 import { ApiResponse } from "@/types/api.types";
-import { CreateSubmissionPayload, MySubmissionsResponse, Submission, SubmissionStats, SubmissionStatus } from "@/types/submission.types";
+import { CreateSubmissionPayload, MySubmissionsResponse, ReviewSubmissionPayload, Submission, SubmissionStats, SubmissionStatus } from "@/types/submission.types";
 
 
 export function createSubmission(payload: CreateSubmissionPayload) {
@@ -47,4 +47,18 @@ export function getSubmissions({
     { method: "GET" },
   );
 }
+
+export function reviewSubmission(
+  submissionId: string,
+  payload: ReviewSubmissionPayload,
+) {
+  return apiClient(
+    `/submission/${submissionId}/review`,
+    {
+      method: "PATCH",
+      body: payload,
+    },
+  );
+}
+
 

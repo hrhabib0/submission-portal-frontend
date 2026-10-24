@@ -51,3 +51,8 @@ export interface SubmissionStats {
   approved: number;
   rejected: number;
 }
+
+export interface ReviewSubmissionPayload {
+  status: "APPROVED" | "REJECTED";
+  comment: string;
+}
