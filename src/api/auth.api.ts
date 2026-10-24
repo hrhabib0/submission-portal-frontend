@@ -16,3 +16,9 @@ export function loginUser(payload: LoginPayload) {
     body: payload,
   });
 }
+
+export function getCurrentUser() {
+  return apiClient<ApiResponse<AuthUser>>("/auth/me", {
+    method: "GET",
+  });
+}
