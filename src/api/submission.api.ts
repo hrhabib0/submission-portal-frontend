@@ -1,5 +1,5 @@
 import apiClient from "@/lib/apiClient";
-import { CreateSubmissionPayload } from "@/types/submission.types";
+import { CreateSubmissionPayload, MySubmissionsResponse } from "@/types/submission.types";
 
 
 export function createSubmission(payload: CreateSubmissionPayload) {
@@ -8,3 +8,11 @@ export function createSubmission(payload: CreateSubmissionPayload) {
     body: payload,
   });
 }
+
+export function getMySubmissions(page = 1, limit = 10) {
+  return apiClient<MySubmissionsResponse>(
+    `/submission/my-submissions?page=${page}&limit=${limit}`,
+    { method: "GET" },
+  );
+}
+
