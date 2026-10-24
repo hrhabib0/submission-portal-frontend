@@ -1,4 +1,3 @@
-
 "use client";
 
 import { LogOut } from "lucide-react";
@@ -20,14 +19,15 @@ export function LogoutButton({
   return (
     <Button
       type="button"
+      variant="ghost"
       onClick={() => logoutMutation.mutate()}
       disabled={logoutMutation.isPending}
       className={className}
     >
-      <LogOut className="size-4" />
+      <LogOut className="size-4 shrink-0" />
 
       {showLabel && (
-        <span className="hidden sm:inline">
+        <span>
           {logoutMutation.isPending ? "Logging out..." : "Logout"}
         </span>
       )}

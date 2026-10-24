@@ -31,7 +31,7 @@ export default function Footer() {
               </span>
 
               <span className="text-lg font-bold tracking-tight">
-                Project<span className="text-primary">Portal</span>
+                Project<span className="text-primary">Hub</span>
               </span>
             </Link>
 
@@ -90,7 +90,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-10 flex flex-col gap-4 border-t pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-muted-foreground">
-            © 2026 ProjectPortal. All rights reserved.
+            © 2026 ProjectHub. All rights reserved.
           </p>
 
           <a
