@@ -5,8 +5,8 @@ import { useEffect, useState, type ReactNode } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
 import { useCurrentUser } from "@/hooks";
-import DashboardSidebar from "@/components/ui/dashboard/dashboard-sidebar";
-import DashboardHeader from "@/components/ui/dashboard/dashboard-header";
+import DashboardSidebar from "@/components/dashboard/dashboard-sidebar";
+import DashboardHeader from "@/components/dashboard/dashboard-header";
 
 export default function DashboardLayout({
   children,
