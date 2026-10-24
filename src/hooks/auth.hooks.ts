@@ -1,5 +1,8 @@
-import { getCurrentUser, loginUser, registerUser } from "@/api"
+import { getCurrentUser, loginUser, logoutUser, registerUser } from "@/api"
+import { getApiErrorMessage } from "@/lib/apiError";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 
 export const useLogin = () => {
@@ -32,3 +35,34 @@ export const useCurrentUser = () => {
     retry: false,
   });
 };
+
+export function useLogout() {
+  const queryClient = useQueryClient();
+  const router = useRouter();
+
+  return useMutation({
+    mutationFn: logoutUser,
+
+    onSuccess: async () => {
+      // Cancel pending current-user requests.
+      await queryClient.cancelQueries({
+        queryKey: ["current-user"],
+      });
+
+      // Immediately update the header's authentication state.
+      queryClient.setQueryData(["current-user"], null);
+
+      // Navigate to the public homepage.
+      router.replace("/");
+      router.refresh();
+
+      toast.success("Logged out successfully.");
+    },
+
+    onError: (error) => {
+      toast.error(
+        getApiErrorMessage(error, "Unable to log out."),
+      );
+    },
+  });
+}

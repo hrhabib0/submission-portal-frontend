@@ -79,7 +79,7 @@ export default function DashboardSidebar({
       >
         <div className="flex h-16 items-center justify-between border-b border-slate-200 px-5">
           <Link
-            href={isMentor ? "/mentor/dashboard" : "/student/dashboard"}
+            href={"/"}
             className="flex items-center gap-2 text-lg font-bold tracking-tight text-slate-900"
             onClick={onClose}
           >

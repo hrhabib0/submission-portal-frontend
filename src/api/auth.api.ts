@@ -22,3 +22,9 @@ export function getCurrentUser() {
     method: "GET",
   });
 }
+
+export function logoutUser() {
+  return apiClient("/auth/logout", {
+    method: "POST",
+  });
+}
