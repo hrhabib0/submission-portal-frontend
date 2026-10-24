@@ -279,6 +279,9 @@ export default function NewSubmissionPage() {
             Make sure your repository is accessible to your mentor and
             your live project link opens correctly.
           </p>
+          <p className="mt-1 text-sm leading-6 text-red-800">
+            N.B.: Remember that you can submit only one project for now. We are working on our site. Some days later you can submit multiple projects. 
+          </p>
         </div>
 
         <div className="flex flex-col-reverse gap-3 border-t border-slate-100 pt-5 sm:flex-row sm:justify-end">

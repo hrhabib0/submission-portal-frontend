@@ -11,7 +11,7 @@ export function createSubmission(payload: CreateSubmissionPayload) {
 }
 
 export function getMySubmissions(page = 1, limit = 10) {
-  return apiClient<MySubmissionsResponse>(
+  return apiClient(
     `/submission/my-submissions?page=${page}&limit=${limit}`,
     { method: "GET" },
   );

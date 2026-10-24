@@ -91,7 +91,7 @@ export default function HomePage() {
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
         >
-          <div className="absolute -top-32 left-1/2 size-[440px] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl sm:size-[600px]" />
+          <div className="absolute -top-32 left-1/2 size-110 -translate-x-1/2 rounded-full bg-primary/10 blur-3xl sm:size-[600px]" />
           <div className="absolute right-0 top-40 size-64 rounded-full bg-blue-400/10 blur-3xl" />
         </div>
 

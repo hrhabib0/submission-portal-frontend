@@ -12,7 +12,7 @@ import {
   RefreshCw,
 } from "lucide-react";
 
-import { SubmissionStatus } from "@/types/submission.types";
+import { Submission, SubmissionStatus } from "@/types/submission.types";
 import { useMySubmissions } from "@/hooks";
 import { Button } from "@/components/ui/button";
 
@@ -56,7 +56,7 @@ export default function MySubmissionsPage() {
     isFetching,
   } = useMySubmissions(page, limit);
 
-  const submissions = response?.data ?? [];
+  const submissions: Submission[] = response?.data ?? [];
   const meta = response?.meta;
   const totalPages = Math.max(meta?.totalPages ?? 1, 1);
   const total = meta?.total ?? submissions.length;
