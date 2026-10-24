@@ -1,6 +1,6 @@
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { createSubmission, getMySubmissions, getSubmissions, reviewSubmission } from "@/api/submission.api";
+import { createSubmission, getMySubmissions, getSubmissionById, getSubmissions, reviewSubmission } from "@/api/submission.api";
 import { ReviewSubmissionPayload, SubmissionStatus } from "@/types/submission.types";
 
 export const useCreateSubmission = () => {
@@ -40,6 +40,19 @@ export function useGetSubmissions({
   return useQuery({
     queryKey: ["submissions", "mentor-list", page, limit, status],
     queryFn: () => getSubmissions({ page, limit, status }),
+    staleTime: 30_000,
+    retry: false,
+  });
+}
+
+export function useGetSubmissionById(submissionId: string) {
+  return useQuery({
+    queryKey: ["submissions", "detail", submissionId],
+    queryFn: async () => {
+      const response = await getSubmissionById(submissionId);
+      return response.data.submission;
+    },
+    enabled: Boolean(submissionId),
     staleTime: 30_000,
     retry: false,
   });

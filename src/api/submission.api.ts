@@ -48,6 +48,13 @@ export function getSubmissions({
   );
 }
 
+export function getSubmissionById(submissionId: string) {
+  return apiClient<ApiResponse<{ submission: Submission }>>(
+    `/submission/${submissionId}`,
+    { method: "GET" },
+  );
+}
+
 export function reviewSubmission(
   submissionId: string,
   payload: ReviewSubmissionPayload,
@@ -60,5 +67,3 @@ export function reviewSubmission(
     },
   );
 }
-
-
