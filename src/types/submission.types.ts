@@ -18,6 +18,11 @@ export interface SubmissionFeedback {
 }
 
 export type SubmissionStatus = "PENDING" | "APPROVED" | "REJECTED";
+export interface SubmissionOwner {
+    id: string;
+    name: string;
+    email: string;
+}
 
 export interface Submission {
   id: string;
@@ -28,6 +33,7 @@ export interface Submission {
   status: SubmissionStatus;
   createdAt: string;
   updatedAt: string;
+  student: SubmissionOwner;
   feedback: SubmissionFeedback[];
 }
 
@@ -37,4 +43,11 @@ export interface MySubmissionsResponse {
   message: string;
   data: Submission[];
   meta?: ApiMeta;
+}
+
+export interface SubmissionStats {
+  total: number;
+  pending: number;
+  approved: number;
+  rejected: number;
 }
